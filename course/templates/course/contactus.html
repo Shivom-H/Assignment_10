@@ -1,0 +1,99 @@
+{% extends "course\basic.html" %}
+
+{% block title %}
+  contact us
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block body %}
+
+<div style="background:linear-gradient(to bottom right, lightpink, lightgreen);">  
+<div class="container">
+    <div class="row">
+    <h1 class="Display-1">
+        Contact Us
+    </h1>
+
+    <!-- {% if user.is_authenticated %}
+
+    you are is_authenticated
+
+    {% else %}
+    you are not auth
+    {% endif %} -->
+
+    <div class="col-12">
+    <form action="/course/contactsubmit/" method="POST">
+        {% csrf_token %}
+
+      <!-- Name input -->
+      <div class="form-outline mb-3">
+        <label class="form-label" for="name">Full_Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Full Name"/>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" name="email" id="registerEmail" class="form-control" placeholder="Email Id"/>
+        <div id="emailHelp" class="form-text text-dark">We'll never share your email with anyone else.</div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="mb-3">
+        <label for="phoneNum" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNum" name="phone" placeholder="Phone Number" minlength="10" name="Phone_number" aria-describedby="numHelp">
+        <div id="numHelp" class="form-text text-dark">We'll never share your Phone Number with anyone else.</div>
+    </div>
+
+      <div class="mb-3 form-floating">
+        <textarea class="form-control" placeholder="Leave your problems here" name="desc" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Description</label>
+      </div>
+      
+      <!-- Password -->
+      <!-- 
+      <div class="form-outline mb-4">
+        <label class="form-label" for="registerPassword">Password</label>
+        <input type="password" name="password" id="registerPassword" class="form-control" placeholder="Password"/>
+      </div>  -->
+
+      <!-- D.O.B -->
+      <!-- <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" id="dateOfBirth" placeholder="DOB" name="date">
+      </div> -->
+      
+      <!-- Checkbox -->
+      <!-- 
+      <div class="form-check d-flex justify-content-center mb-4">
+        <input
+          class="form-check-input me-2"
+          type="checkbox"
+          value=""
+          id="registerCheck"
+          checked
+          aria-describedby="registerCheckHelpText"
+        />
+        <label class="form-check-label" for="registerCheck">
+          I have read and agreed to the terms & conditions
+        </label>
+      </div> -->
+
+      <div class="input-group mb-3">
+        <input type="file" name="screenshot" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-3">Submit</button>
+    </form>            
+    </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock body %}

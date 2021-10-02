@@ -1,0 +1,121 @@
+{% extends "course\basic.html" %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block body %}
+  
+{% if messages %}
+<ul class="messages list-unstyled">
+    {% for message in messages %}
+    <li {% if message.tags %}>
+
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong> {{ message }} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+ <main role="main" style="background:linear-gradient(to bottom right, lightpink, lightgreen);">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron" style="color: #032442;">
+        <div class="container">
+          <h1 class="display-3">Ambitions</h1>
+            <h3>
+            {% if user.is_authenticated  %}
+            Welcome {{request.user.first_name}}</h3>
+            <p class="mx-2"><a class="btn btn-primary btn-lg" href="/members/logout/" role="button">Log Out &raquo;</a></p>
+            {% endif %}    
+          
+          <h5>A film, also called a movie, motion picture or moving picture, is a work of visual art used to simulate experiences that communicate ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound, and more rarely, other sensory stimulations.</h5>
+          {% if not user.is_authenticated  %}
+          <div class="d-flex ">
+            <p class="mx-2"><a class="btn btn-primary btn-lg" href="/members/login/" role="button">Login &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="/members/signup/" role="button">Sign Up &raquo;</a></p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="container" style="padding-bottom: 30px;">
+        <!-- Example row of columns -->
+        <div class="row" style="color: #032442;">
+          <div class="col-md-4">
+            <h2>Make Your Own Blog!</h2>
+            <p>Make sure that You (the user) is either <a href="/members/signup/">Signed In</a>/<a href="/members/login/">Logged in</a> to get the experience of making your own blog.  </p>
+            <p><a class="btn btn-dark" href="/blog/" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Movies</h2>
+            <p>Select your favorite movies and buy them whenever you want. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, error pariatur. Asperiores ratione animi aliquid natus? Expedita ex doloremque.</p>
+            <p><a class="btn btn-dark" href="/course/list/" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Contact Us!</h2>
+            <p>Contact us for any queries. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.</p>
+            <p><a class="btn btn-dark" href="/course/contactus/" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class=" text-center text-white" style="background-color: #032442;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright:
+        <a class="text-white" href="">Shivom</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+{% endblock body %}

@@ -24,7 +24,7 @@ def List(request):
         "data": Courses
     }
     
-    return render(request,"course\index.html", params)
+    return render(request,"course/index.html", params)
 
 def Detail(request,id):
     # id = request.GET.get("id")
@@ -34,11 +34,11 @@ def Detail(request,id):
     except:
         params = {"data":{},"error":"Course not found"}
 
-    return render(request,"course\singlecourse.html", params)
+    return render(request,"course/singlecourse.html", params)
 
 def contactUs(request):
     
-    return render(request,"course\contactus.html")
+    return render(request,"course/contactus.html")
 
 def contactSubmit(request):
     email = request.POST.get("email")
